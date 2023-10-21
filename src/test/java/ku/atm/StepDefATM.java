@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Rachata Kaewviset 6410406843
 public class StepDefATM {
 
     ATM atm;
@@ -70,4 +70,13 @@ public class StepDefATM {
                      bank.getCustomer(id).getAccount().getBalance());
     }
 
+    @When("I deposit {float} to my account")
+    public void customer_deposit(double amount){
+        atm.deposit(amount);
+    }
+
+    @Then("My bank account should have {float}")
+    public void customer_total_account_balance_is(double balance){
+        assertEquals(balance,atm.getBalance());
+    }
 }
